@@ -1,0 +1,35 @@
+<div class="header">
+
+  <div class="title-logo">
+  <img class="logo" src="logo.png" alt="">
+  <h1>Huella social</h1>
+  </div>
+
+  <div class="search-bar">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="Escribe el nombre"
+    class="form-control"
+  />
+
+  <button (click)="buscarVeterinarios()" class="btn btn-primary">
+    Buscar
+  </button>
+  </div>
+</div>
+<div class="results-container">
+  <h3>Resultados:</h3>
+  <div *ngIf="resultados.length === 0" class="no-results">
+    No se encontraron veterinarios.
+  </div>
+  <div *ngFor="let clinica of resultados" class="card">
+    <h2>{{ clinica.name }}</h2>
+    <p><strong>Ubicación:</strong> {{ clinica.location }}</p>
+    <p class="rating">🐾 {{ clinica.rating }}</p>
+  </div>
+</div>
+
+
+
+
